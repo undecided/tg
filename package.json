@@ -1,0 +1,7 @@
+{
+  "description": "Super-lightweight templating syntax",
+  "devDependencies": {
+    "coffee-script": "^1.12.6",
+    "mocha": "^3.4.2"
+  }
+}
