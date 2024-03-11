@@ -5,9 +5,9 @@ describe 'Tg', ->
   it 'generates an empty div with Tg("div")', ->
     assert.equal('<div></div>', Tg('div'))
   it 'generates a div with static content with Tg("div", "content")', ->
-    assert.equal('<div>foobar</div>', Tg('div', 'foobar'))
+    assert.equal('<div>content</div>', Tg('div', 'content'))
   it 'generates a div with dynamic content with Tg("div", -> "whee")', ->
-    assert.equal('<div>foobar</div>', Tg('div', -> 'foobar'))
+    assert.equal('<div>whee</div>', Tg('div', -> 'whee'))
   it 'generates params with Tg("div", class: "foo")', ->
     assert.equal('<div class="foo"></div>', Tg('div', class: 'foo'))
   it 'generates params and static content with Tg("div", class: "foo", "bah")', ->
@@ -24,3 +24,5 @@ describe 'Tg', ->
     assert.equal('<br/>', Tg("br/"))
   it 'knows that certain shortcuts should self-close, e.g. Tg.br() == "<br/>"', ->
     assert.equal('<br/>', Tg.br())
+  it 'knows that self-closers can sometimes have content too, e.g. Tg.br("Hi") == "<br>Hi</br>"', ->
+    assert.equal('<br>Hi</br>', Tg.br("Hi"))

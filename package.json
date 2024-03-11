@@ -2,6 +2,9 @@
   "description": "Super-lightweight templating syntax",
   "devDependencies": {
     "coffee-script": "^1.12.6",
-    "mocha": "^3.4.2"
+    "mocha": "^3.5.3"
+  },
+  "scripts": {
+    "build_and_test": "mocha --compilers coffee:coffee-script/register && coffee -o build/ -c tg.coffee"
   }
 }

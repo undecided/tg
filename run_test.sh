@@ -1,1 +1,1 @@
-./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register
+npm run build_and_test
