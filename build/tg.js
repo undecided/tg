@@ -5,13 +5,12 @@
     hasProp = {}.hasOwnProperty;
 
   Tg = function() {
-    var child, children, k, opts, others, tag, tagdef, tagname;
+    var child, children, isHash, k, opts, others, tag, tagdef, tagname;
     tagdef = arguments[0], others = 2 <= arguments.length ? slice.call(arguments, 1) : [];
-    if (['undefined', 'function', 'string'].indexOf(typeof others[0]) > -1) {
-      opts = {};
-    } else {
-      opts = others.shift();
-    }
+    isHash = function(x) {
+      return typeof x === "object" && !(x instanceof Array);
+    };
+    opts = isHash(others[0]) ? others.shift() : isHash(others[others.length - 1]) ? others.pop() : {};
     children = ((function() {
       var i, len, ref, ref1, results;
       ref1 = (ref = []).concat.apply(ref, others);

@@ -1,5 +1,6 @@
 Tg = (tagdef, others...)->
-  if ['undefined', 'function', 'string'].indexOf(typeof others[0]) > -1 then opts = {} else opts = others.shift()
+  isHash = (x)-> typeof x == "object" && !(x instanceof Array)
+  opts = if isHash(others[0]) then others.shift() else if isHash(others[others.length - 1]) then others.pop() else {}
   children = ((if typeof child is 'function' then child() else child) for child in [].concat(others...)).join('')
   tagname = tagdef.replace('/', '')
   tag = [tagname,("#{k}=\"#{opts[k]}\"" for own k of opts)...].join(' ')
