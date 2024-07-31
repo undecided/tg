@@ -54,17 +54,17 @@ Tg
 
 ### IAQ (Infrequently Asked Questions)
 
-#### What about Doctypes?
+#### - What about Doctypes?
 
 Sorry, no support for those (yet)
 
-#### What about LIs? They can be legitimately used without a closing tag...
+#### - What about LIs? They can be legitimately used without a closing tag...
 
 Sure, they can. But why would you?
 
 Seriously, if someone can come up with a genuine best-practices use-case, I'll come up with a syntax for it.
 
-#### I DEMAND you support \<marquee\> tags!
+#### - I DEMAND you support shortcuts for \<marquee\> tags!
 
 Do it yourself! `Tg["marquee"] = (...others) => { return Tg("marquee", ...others); };`
 
