@@ -4,12 +4,11 @@
     hasProp = {}.hasOwnProperty;
 
   Tg = function(tagname, ...others) {
-    var child, children, k, opts, tag, tagroot;
-    if (['undefined', 'function', 'string'].indexOf(typeof others[0]) > -1) {
-      opts = {};
-    } else {
-      opts = others.shift();
-    }
+    var child, children, isHash, k, opts, tag, tagroot;
+    isHash = function(x) {
+      return typeof x === "object" && !(x instanceof Array);
+    };
+    opts = isHash(others[0]) ? others.shift() : isHash(others[others.length - 1]) ? others.pop() : {};
     children = ((function() {
       var i, len, ref, results;
       ref = [].concat(...others);

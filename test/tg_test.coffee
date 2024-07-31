@@ -10,6 +10,8 @@ describe 'Tg', ->
     assert.equal('<div>whee</div>', Tg('div', -> 'whee'))
   it 'generates with params at the back like Tg("div", class: "foo")', ->
     assert.equal('<div class="foo"></div>', Tg('div', class: 'foo'))
+  it 'generates with content and params at the back like Tg("div", "content", class: "foo")', ->
+    assert.equal('<div class="foo">content</div>', Tg('div', "content", class: 'foo'))
   it 'generates with params at the front like Tg.div({class: "foo"}, "some content")', ->
     assert.equal('<div class="foo">some content</div>', Tg.div({class: "foo"}, "some content"))
   it 'generates params and static content with Tg("div", class: "foo", "bah")', ->
