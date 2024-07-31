@@ -32,22 +32,23 @@ in the world (it should be pretty fast...) or the most complete in the world
 got HTML strings in your Javascript, and you're sick of trying to remember to
 close your tags, this is a pretty awesome step up!
 
-There are a few other syntaxes that work - here's an output from the test suite
-that I ran recently:
+There are a few other syntaxes that work - here's an output from the test suite for reference:
 
 ```
 Tg
-  ✓ generates an empty div with Tg("div")
-  ✓ generates a div with static content with Tg("div", "content")
-  ✓ generates a div with dynamic content with Tg("div", -> "whee")
-  ✓ generates params with Tg("div", class: "foo")
-  ✓ generates params and static content with Tg("div", class: "foo", "bah")
-  ✓ generates params and dynamic content with Tg("div", class: "foo", -> "bah")
-  ✓ concatenates any other string / fn params Tg("div", class: "foo", "whee", "bah", -> "bah")
-  ✓ concatenates any arrays of string / fn params Tg("div", class: "foo", ["whee", "bah", -> "bah"], ["boo"])
-  ✓ has shortcuts for common tags, e.g. Tg.div(class: foo, "whee")
-  ✓ has a modifier for self-closing tags, e.g. Tg("br/")
-  ✓ knows that certain shortcuts should self-close, e.g. Tg.br() == "<br/>"
+  ✔ generates an empty div with Tg("div")
+  ✔ generates a div with static content with Tg("div", "content")
+  ✔ generates a div with dynamic content with Tg("div", -> "whee")
+  ✔ generates with params at the back like Tg("div", class: "foo")
+  ✔ generates with params at the front like Tg.div({class: "foo"}, "some content")
+  ✔ generates params and static content with Tg("div", class: "foo", "bah")
+  ✔ generates params and dynamic content with Tg("div", class: "foo", -> "bah")
+  ✔ concatenates any other string / fn params Tg("div", class: "foo", "whee", "bah", -> "bah")
+  ✔ concatenates any arrays of string / fn params Tg("div", class: "foo", ["whee", "bah", -> "bah"], ["boo"])
+  ✔ has shortcuts for common tags, e.g. Tg.div(class: foo, "whee")
+  ✔ has a modifier for self-closing tags, e.g. Tg("br/")
+  ✔ knows that certain shortcuts should self-close, e.g. Tg.br() == "<br/>"
+  ✔ knows that self-closers can sometimes have content too, e.g. Tg.br("Hi") == "<br>Hi</br>"
 ```
 
 ### Development

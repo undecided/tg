@@ -1,10 +1,13 @@
 {
   "description": "Super-lightweight templating syntax",
   "devDependencies": {
-    "coffee-script": "^1.12.6",
-    "mocha": "^3.5.3"
+    "coffeescript": "^2.7.0",
+    "minify": "^11.4.0",
+    "mocha": "^10.7.0"
   },
   "scripts": {
-    "build_and_test": "mocha --compilers coffee:coffee-script/register && coffee -o build/ -c tg.coffee"
+    "test": "mocha --require coffeescript/register test/**/*.coffee",
+    "build": "coffee -o build/ -c tg.coffee && minify build/tg.js > build/tg.min.js && cat build/tg.min.js | gzip > build/tg.min.js.gz",
+    "build_and_test": "npm run test && npm run build"
   }
 }
