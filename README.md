@@ -48,8 +48,33 @@ Tg
   ✔ has shortcuts for common tags, e.g. Tg.div(class: foo, "whee")
   ✔ has a modifier for self-closing tags, e.g. Tg("br/")
   ✔ knows that certain shortcuts should self-close, e.g. Tg.br() == "<br/>"
+  ✔ treats attrs for self-closing tags correctly, e.g. Tg.br(class: "foo") == "<br class="foo"/>"
   ✔ knows that self-closers can sometimes have content too, e.g. Tg.br("Hi") == "<br>Hi</br>"
 ```
+
+### IAQ (Infrequently Asked Questions)
+
+#### What about Doctypes?
+
+Sorry, no support for those (yet)
+
+#### What about LIs? They can be legitimately used without a closing tag...
+
+Sure, they can. But why would you?
+
+Seriously, if someone can come up with a genuine best-practices use-case, I'll come up with a syntax for it.
+
+#### I DEMAND you support \<marquee\> tags!
+
+Do it yourself! `Tg["marquee"] = (...others) => { return Tg("marquee", ...others); };`
+
+
+
+### Installation
+
+Kinda up to you. If you want the coffeescript file, use `tg.coffee`. If you want js,
+there's `build/tg.js` and `build/tg.min.js` and even a gzipped version in there.
+
 
 ### Development
 
@@ -57,21 +82,22 @@ If you want to run the tests, and you have node.js installed, you should be able
 
 ```
 npm install .
-./run_test.sh
+./run_tests.sh
 ```
+
+This will create js and minified versions in the build folder if the tests pass
 
 
 ### License
 
-Copyright (c) 2016-2017 Matthew Bennett-Lovesey
+Copyright (c) 2016-2024 Matthew Bennett-Lovesey
 
-This software is offered under the terms of the MIT License, with an informal
-understanding that the License and copyright notice conditions will not be enforced.
+This software is offered under the terms of the MIT No Attribution License (MIT-0)
 
 That means you are free to use and modify this software as you see fit, and with
 all the liability and warranty limitations as set out in the MIT License, but as
 soon as it's used in your project, it becomes - for most intents and purposes -
 your code. You don't need to pass this Copyright notice on; it would be nice if
-you did, but I don't care.
+you did, but I don't care. You are free to make edits to it without telling anyone.
 
 All I ask is that you please, *please*, reduce the amount of HTML in your JS.

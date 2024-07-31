@@ -26,5 +26,7 @@ describe 'Tg', ->
     assert.equal('<br/>', Tg("br/"))
   it 'knows that certain shortcuts should self-close, e.g. Tg.br() == "<br/>"', ->
     assert.equal('<br/>', Tg.br())
+  it 'treats attrs for self-closing tags correctly, e.g. Tg.br(class: "foo") == "<br class="foo"/>"', ->
+    assert.equal('<br class="foo"/>', Tg.br(class: "foo"))
   it 'knows that self-closers can sometimes have content too, e.g. Tg.br("Hi") == "<br>Hi</br>"', ->
     assert.equal('<br>Hi</br>', Tg.br("Hi"))
